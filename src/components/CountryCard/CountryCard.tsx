@@ -8,7 +8,7 @@ type CountryCardProps = {
 
 export default function CountryCard({ country }: CountryCardProps) {
   return (
-    <div style={{ margin: "3rem" }}>
+    <div>
       <CountryFlag imageSrc={country.flags.svg} />
       <CountryInfo country={country} />
     </div>

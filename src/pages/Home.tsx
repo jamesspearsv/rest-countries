@@ -5,25 +5,25 @@ import { Country } from "../types/country";
 //https://restcountries.com/v3.1/all?fields=name,population,region,subregion,capital,cca3,borders,flags,tld,currencies,languages
 
 // @ts-expect-error -> importing development data
+// todo -- add data fetching logic to component
 const countries = data.default;
 
 export default function HomePage() {
   console.log(countries[200]);
   return (
-    <>
+    <div style={{ margin: "2rem 6rem" }}>
       <h1>Home page</h1>
       <div
         style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifySelf: "center",
-          margin: "auto",
+          display: "grid",
+          gap: "5rem",
+          gridTemplateColumns: "repeat(4, 1fr)",
         }}
       >
         {countries.map((country: Country, index: number) => (
           <CountryCard key={index} country={country} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

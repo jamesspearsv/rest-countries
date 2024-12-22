@@ -5,7 +5,12 @@ type CountryFlagProps = {
 export default function CountryFlag({ imageSrc }: CountryFlagProps) {
   return (
     <div>
-      <img src={imageSrc} height={"200px"} width={"300px"} />
+      <img
+        src={imageSrc}
+        height={"auto"}
+        width={"100%"}
+        style={{ borderTopLeftRadius: 10, borderTopRightRadius: 10 }}
+      />
     </div>
   );
 }
