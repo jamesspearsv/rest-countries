@@ -5,7 +5,6 @@ import { Country } from "../types/country";
 //https://restcountries.com/v3.1/all?fields=name,population,region,subregion,capital,cca3,borders,flags,tld,currencies,languages
 
 // @ts-expect-error -> importing development data
-// todo -- add data fetching logic to component
 const countries = data.default;
 
 export default function HomePage() {

@@ -1,0 +1,37 @@
+.cardContainer {
+    --border-radius: 12px;
+    font-size: var(--font-smaller);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    height: fit-content;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.flagImage {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    height: auto;
+    width: 100%;
+}
+
+.countryName {
+    font-size: 1.25em;
+    font-weight: var(--weight-bolder);
+}
+
+.countryInfo {
+    padding: 1rem;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+.countryInfo p {
+    font-weight: var(--weight-bold);
+}
+
+.countryInfo span {
+    font-weight: var(--weight-normal);
+}

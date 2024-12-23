@@ -1,6 +1,7 @@
 import CountryFlag from "./CountryFlag.tsx";
 import CountryInfo from "./CountryInfo.tsx";
 import { Country } from "../../types/country";
+import styles from "./CountryCard.module.css";
 
 type CountryCardProps = {
   country: Country;
@@ -8,7 +9,7 @@ type CountryCardProps = {
 
 export default function CountryCard({ country }: CountryCardProps) {
   return (
-    <div>
+    <div className={styles.cardContainer}>
       <CountryFlag imageSrc={country.flags.svg} />
       <CountryInfo country={country} />
     </div>

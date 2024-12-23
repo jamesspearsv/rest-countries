@@ -1,4 +1,5 @@
 import { Country } from "../../types/country";
+import styles from "./CountryCard.module.css";
 
 type CountryInfoProps = {
   country: Country;
@@ -6,8 +7,8 @@ type CountryInfoProps = {
 
 export default function CountryInfo({ country }: CountryInfoProps) {
   return (
-    <div>
-      <div>{country.name.common}</div>
+    <div className={styles.countryInfo}>
+      <div className={styles.countryName}>{country.name.common}</div>
       <p>
         Population: <span>{country.population}</span>
       </p>
