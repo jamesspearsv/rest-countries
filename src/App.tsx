@@ -20,7 +20,7 @@ export default function App() {
   }, [colorMode]);
 
   return (
-    <main className={colorMode === "dark" ? "darkMode" : "lightMode"}>
+    <main data-theme={colorMode}>
       <TitleBar colorMode={colorMode} setColorMode={setColorMode} />
       <Outlet />
     </main>
