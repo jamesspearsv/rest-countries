@@ -30,3 +30,7 @@ body {
     background-color: var(--light-gray);
     font-family: var(--font);
 }
+
+main {
+    font-family: var(--font-smaller);
+}

@@ -11,7 +11,6 @@ export default function HomePage() {
   console.log(countries[200]);
   return (
     <div style={{ margin: "2rem 6rem" }}>
-      <h1>Home page</h1>
       <div
         style={{
           display: "grid",

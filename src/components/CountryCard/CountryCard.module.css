@@ -1,6 +1,5 @@
 .cardContainer {
     --border-radius: 12px;
-    font-size: var(--font-smaller);
     display: flex;
     flex-direction: column;
     gap: 0;
