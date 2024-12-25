@@ -64,7 +64,7 @@ export default function HomePage() {
           <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.icon} />
           <input type="text" placeholder="Search for a country..." />
         </div>
-        <div></div>
+        <div>todo...</div>
       </div>
       <div>
         <div className={styles.countryGrid}>

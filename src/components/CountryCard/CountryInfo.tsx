@@ -10,7 +10,7 @@ export default function CountryInfo({ country }: CountryInfoProps) {
     <div className={styles.countryInfo}>
       <div className={styles.countryName}>{country.name.common}</div>
       <p>
-        Population: <span>{country.population}</span>
+        Population: <span>{country.population.toLocaleString()}</span>
       </p>
       <p>
         Region: <span>{country.region}</span>
