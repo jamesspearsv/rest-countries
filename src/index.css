@@ -19,6 +19,8 @@
     /* design widths */
     --mobile-breakpoint: 375px;
     --desktop-breakpoint: 1440px;
+    --box-shadow-light: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    --box-shadow-dark:  rgb(28 21 21 / 20%) 0px 2px 8px 0px;
 }
 
 * {

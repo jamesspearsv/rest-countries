@@ -1,0 +1,51 @@
+.container {
+    margin: 2rem 6rem;
+}
+
+.actionBar {
+    height: 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchBox {
+    background-color: var(--white);
+    padding: .5rem;
+    padding-left: .75rem;
+    color: var(--dark-gray);
+    box-shadow: var(--box-shadow-light);
+
+    input {
+        padding: .375rem;
+        width: 250px;
+        margin-left: .375rem;
+        border: none;
+        background-color: transparent;
+    }
+}
+
+.countryGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5rem
+}
+
+main[data-theme="dark"] {
+    .searchBox {
+        background-color: var(--dark-blue);
+        box-shadow: var(--box-shadow-dark);
+        color: var(--white);
+
+        input {
+            color: var(--white)
+        }
+
+        input::placeholder {
+            color: var(--white);
+            opacity: 1;
+
+        }
+    }
+}
