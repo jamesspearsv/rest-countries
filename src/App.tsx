@@ -20,7 +20,7 @@ export default function App() {
   }, [colorMode]);
 
   return (
-    <main data-theme={colorMode}>
+    <main style={{ fontSize: "14px" }} data-theme={colorMode}>
       <TitleBar colorMode={colorMode} setColorMode={setColorMode} />
       <Outlet />
     </main>

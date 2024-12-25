@@ -4,6 +4,7 @@
     /* color variables */
     --dark-blue: hsl(209, 23%, 22%);
     --darker-blue: hsl(207, 26%, 17%);
+    --dark-text: hsl(200, 15%, 8%);
     --dark-gray: hsl(0, 0%, 52%);
     --light-gray: hsl(0, 0%, 98%);
     --white: hsl(0, 0%, 100%);
@@ -29,8 +30,10 @@
 body {
     background-color: var(--light-gray);
     font-family: var(--font);
+    color: var(--dark-text);
 }
 
 body:has(main[data-theme=dark]) {
     background-color: var(--darker-blue);
+    color: var(--white);
 }

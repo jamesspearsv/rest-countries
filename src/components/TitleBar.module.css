@@ -12,6 +12,7 @@
 
 main[data-theme=dark] .navContainer{
     background-color: var(--dark-blue);
+    color: var(--white);
 }
 
 .title {
@@ -24,10 +25,22 @@ main[data-theme=dark] .navContainer{
     align-items: center;
     gap: .25rem;
     border: none;
-    background-color: var(--white);
     cursor: pointer;
+    background-color: transparent;
 }
 
-.button .text {
+.text {
     font-family: var(--font);
+    font-weight: var(--weight-bold);
+}
+
+/* Dark mode styles */
+main[data-theme=dark] {
+    .text {
+        color: var(--white)
+    }
+
+    .icon {
+        color: var(--white)
+    }
 }

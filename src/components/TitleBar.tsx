@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import styles from "./TitleBar.module.css";
 
 type TitleBarProps = {
@@ -23,7 +23,10 @@ export default function TitleBar({ colorMode, setColorMode }: TitleBarProps) {
       <div className={styles.title}>Where in the world?</div>
 
       <button className={styles.button} onClick={handleColorModeChange}>
-        <FontAwesomeIcon icon={colorMode === "light" ? faMoon : faSun} />
+        <FontAwesomeIcon
+          icon={colorMode === "light" ? faMoon : faSun}
+          className={styles.icon}
+        />
         <div className={styles.text}>
           {colorMode === "light" ? "Dark Mode" : "Light Mode"}
         </div>

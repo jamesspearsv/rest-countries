@@ -9,16 +9,12 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+
 .flagImage {
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
     height: auto;
     width: 100%;
-}
-
-.countryName {
-    font-size: 1.25em;
-    font-weight: var(--weight-bolder);
 }
 
 .countryInfo {
@@ -27,10 +23,25 @@
     border-bottom-right-radius: var(--border-radius);
 }
 
+.countryName {
+    margin-bottom: 1rem;
+    font-size: 1.375em;
+    font-weight: var(--weight-bolder);
+}
+
 .countryInfo p {
+    margin: .375rem 0;
     font-weight: var(--weight-bold);
 }
 
 .countryInfo span {
     font-weight: var(--weight-normal);
+}
+
+/*Dark mode themes*/
+main[data-theme=dark] {
+    .cardContainer {
+        background-color: var(--dark-blue);
+        box-shadow: rgb(28 21 21 / 20%) 0px 2px 8px 0px;
+    }
 }

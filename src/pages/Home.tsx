@@ -14,7 +14,7 @@ export default function HomePage() {
       <div
         style={{
           display: "grid",
-          gap: "5rem",
+          gap: "4rem",
           gridTemplateColumns: "repeat(4, 1fr)",
         }}
       >
