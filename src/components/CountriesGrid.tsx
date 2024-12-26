@@ -5,9 +5,13 @@ import { useEffect, useState } from "react";
 
 type CountriesGridProps = {
   searchTerm: string;
+  selectedRegion: string;
 };
 
-export default function CountriesGrid({ searchTerm }: CountriesGridProps) {
+export default function CountriesGrid({
+  searchTerm,
+  selectedRegion,
+}: CountriesGridProps) {
   const [countries, setCountries] = useState<Country[] | null>(null);
   const [error, setError] = useState(false);
 
@@ -21,13 +25,16 @@ export default function CountriesGrid({ searchTerm }: CountriesGridProps) {
         const service = {
           all: "https://restcountries.com/v3.1/all",
           search: `https://restcountries.com/v3.1/name/${searchTerm}`,
+          region: `https://restcountries.com/v3.1/region/${selectedRegion}`,
         };
 
         let url: string;
-        if (!searchTerm) {
-          url = service.all;
-        } else {
+        if (searchTerm) {
           url = service.search;
+        } else if (selectedRegion) {
+          url = service.region;
+        } else {
+          url = service.all;
         }
 
         const res = await fetch(url + fields);
@@ -47,7 +54,7 @@ export default function CountriesGrid({ searchTerm }: CountriesGridProps) {
       setCountries(null);
       setError(false);
     };
-  }, [searchTerm]);
+  }, [searchTerm, selectedRegion]);
 
   if (error) {
     return (

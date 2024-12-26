@@ -7,7 +7,7 @@
     margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
 }
 
 .searchBox {
@@ -28,10 +28,16 @@
     }
 }
 
+.regionFilter {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
 .countryGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 5rem
+    gap: 5rem;
+    z-index: -1000;
 }
 
 main[data-theme="dark"] {
