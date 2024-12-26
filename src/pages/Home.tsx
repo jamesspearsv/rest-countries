@@ -29,6 +29,7 @@ export default function HomePage() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
+        {/* todo - replace with custom element to style 'select options' menu */}
         <select
           className={styles.regionFilter}
           value={selectedRegion}
