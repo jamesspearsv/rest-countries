@@ -1,5 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faCaretDown,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "./Home.module.css";
 import CountriesGrid from "../components/CountriesGrid.tsx";
 import { useState } from "react";
@@ -7,6 +10,7 @@ import { useState } from "react";
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
+  const [filtersOpen, setFiltersOpen] = useState(true);
 
   const filters = [
     "Africa",
@@ -16,6 +20,15 @@ export default function HomePage() {
     "Oceania",
     "Antarctic",
   ];
+
+  function handleFiltersClick() {
+    setFiltersOpen((prevState) => !prevState);
+  }
+
+  function handleFilterSelect(e) {
+    setSelectedRegion(e.target.dataset.value);
+    setFiltersOpen(false);
+  }
 
   return (
     <div className={styles.container}>
@@ -29,22 +42,36 @@ export default function HomePage() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        {/* todo - replace with custom element to style 'select options' menu */}
-        <select
-          className={styles.regionFilter}
-          value={selectedRegion}
-          onChange={(e) => {
-            setSelectedRegion(e.target.value);
-          }}
-        >
-          <option value={""}>Filter By Region</option>
-          {filters.map((filter) => (
-            <option key={filter} value={filter}>
-              {filter}
-            </option>
-          ))}
-          <div>x</div>
-        </select>
+        <div className={styles.filter}>
+          <div className={styles.filterSelect} onClick={handleFiltersClick}>
+            <div>{selectedRegion ? selectedRegion : "Filter By Region"}</div>
+            <div className={styles.filterIcon}>
+              <FontAwesomeIcon icon={faCaretDown} />
+            </div>
+          </div>
+          {filtersOpen && (
+            <ul className={styles.filterOptions}>
+              {selectedRegion && (
+                <li
+                  data-value={""}
+                  onClick={handleFilterSelect}
+                  style={{ color: "#E63946" }}
+                >
+                  Clear Filter
+                </li>
+              )}
+              {filters.map((filter) => (
+                <li
+                  key={filter}
+                  data-value={filter}
+                  onClick={handleFilterSelect}
+                >
+                  {filter}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
       <CountriesGrid searchTerm={searchTerm} selectedRegion={selectedRegion} />
     </div>
