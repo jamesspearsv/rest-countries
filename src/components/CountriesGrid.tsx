@@ -41,7 +41,6 @@ export default function CountriesGrid({
         if (!res.ok) throw new Error("Something went wrong");
 
         const json = await res.json();
-        console.log(json);
         setCountries(json);
       } catch (error) {
         console.error(error);

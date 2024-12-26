@@ -5,7 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Home.module.css";
 import CountriesGrid from "../components/CountriesGrid.tsx";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -25,9 +25,15 @@ export default function HomePage() {
     setFiltersOpen((prevState) => !prevState);
   }
 
-  function handleFilterSelect(e) {
-    setSelectedRegion(e.target.dataset.value);
-    setFiltersOpen(false);
+  function handleFilterSelect(e: React.MouseEvent<HTMLLIElement, MouseEvent>) {
+    // assert that value will always be a string
+    const value = e.currentTarget.dataset.value as string;
+
+    // protect against invalid filters
+    if (filters.includes(value) || value === "") {
+      setSelectedRegion(value);
+      setFiltersOpen(false);
+    }
   }
 
   return (
