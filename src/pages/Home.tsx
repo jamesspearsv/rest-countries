@@ -10,7 +10,7 @@ import React, { useState } from "react";
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
-  const [filtersOpen, setFiltersOpen] = useState(true);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const filters = [
     "Africa",

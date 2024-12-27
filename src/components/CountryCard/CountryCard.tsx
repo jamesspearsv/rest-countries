@@ -2,6 +2,7 @@ import CountryFlag from "./CountryFlag.tsx";
 import CountryInfo from "./CountryInfo.tsx";
 import { Country } from "../../types/country";
 import styles from "./CountryCard.module.css";
+import { Link } from "react-router";
 
 type CountryCardProps = {
   country: Country;
@@ -9,9 +10,12 @@ type CountryCardProps = {
 
 export default function CountryCard({ country }: CountryCardProps) {
   return (
-    <div className={styles.cardContainer}>
+    <Link
+      to={`/details/${country.name.common}`}
+      className={styles.cardContainer}
+    >
       <CountryFlag imageSrc={country.flags.svg} />
       <CountryInfo country={country} />
-    </div>
+    </Link>
   );
 }

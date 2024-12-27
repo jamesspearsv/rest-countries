@@ -7,6 +7,9 @@
     border-radius: var(--border-radius);
     height: fit-content;
     box-shadow: var(--box-shadow-light);
+    cursor: pointer;
+    color: var(--dark-text);
+    text-decoration: none;
 }
 
 
@@ -42,6 +45,7 @@
 main[data-theme=dark] {
     .cardContainer {
         background-color: var(--dark-blue);
-        box-shadow: var(--box-shadow-dark)
+        box-shadow: var(--box-shadow-dark);
+        color: var(--white);
     }
 }

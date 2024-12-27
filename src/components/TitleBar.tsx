@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import styles from "./TitleBar.module.css";
+import { Link } from "react-router";
 
 type TitleBarProps = {
   colorMode: "light" | "dark";
@@ -20,7 +21,9 @@ export default function TitleBar({ colorMode, setColorMode }: TitleBarProps) {
 
   return (
     <nav className={styles.navContainer}>
-      <div className={styles.title}>Where in the world?</div>
+      <Link to={"/"} className={styles.title}>
+        Where in the world?
+      </Link>
 
       <button className={styles.button} onClick={handleColorModeChange}>
         <FontAwesomeIcon
