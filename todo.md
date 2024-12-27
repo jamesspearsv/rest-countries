@@ -13,3 +13,4 @@ This is a running todo list for this project. More items will be added to the li
 - [ ] Add details page structure
 - [ ] Style details page
 - [ ] Add details page mobile styles
+- [ ] Add 404 page
