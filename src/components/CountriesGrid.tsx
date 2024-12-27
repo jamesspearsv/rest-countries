@@ -1,5 +1,5 @@
 import { Country } from "../types/country";
-import styles from "../pages/Home.module.css"; // todo : move these styles
+import styles from "../pages/Home.module.css"; // todo : move these styles to a separate module
 import CountryCard from "./CountryCard/CountryCard.tsx";
 import { useEffect, useState } from "react";
 
@@ -40,7 +40,7 @@ export default function CountriesGrid({
         const res = await fetch(url + fields);
         if (!res.ok) throw new Error("Something went wrong");
 
-        const json = await res.json();
+        const json: Country[] = await res.json();
         setCountries(json);
       } catch (error) {
         console.error(error);
