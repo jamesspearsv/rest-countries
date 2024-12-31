@@ -2,17 +2,17 @@ export type Country = {
   borders: string[];
   capital: string[];
   cca3: string;
-  currencies: object;
+  currencies: { [key: string]: { name: string; symbol: string } };
   flags: {
     png: string;
     svg: string;
     alt: string;
   };
-  languages: object;
+  languages: { [key: string]: string };
   name: {
     common: string;
     official: string;
-    nativeName: object;
+    nativeName: { [key: string]: { common: string; official: string } };
   };
   population: number;
   region: string;

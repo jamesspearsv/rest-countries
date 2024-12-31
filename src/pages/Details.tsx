@@ -31,6 +31,7 @@ export default function DetailPage() {
         if (!res.ok) throw new Error("Could not fetch country");
 
         const json: Country[] = await res.json();
+        console.log(json[0]);
         setCountry(json[0]);
       } catch (error) {
         console.error(error);
@@ -136,7 +137,8 @@ export default function DetailPage() {
                 <span>Currencies:</span>
                 {Object.keys(country.currencies).map((key, index) => (
                   <span key={index}>
-                    {country.currencies[key].name}
+                    {country.currencies[key].name} (
+                    {country.currencies[key].symbol})
                     {index != Object.keys(country.currencies).length - 1 &&
                       ", "}
                   </span>
