@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "./App.tsx";
 import "./index.css";
 import HomePage from "./pages/Home.tsx";
-import DetailPage from "./pages/Detail.tsx";
+import DetailPage from "./pages/Details.tsx";
 
 /*
  * Init app router and define app routes

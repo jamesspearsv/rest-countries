@@ -6,10 +6,20 @@ import styles from "./Details.module.css";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+type borderCountryType = {
+  name: {
+    common: string;
+    official: string;
+  };
+};
+
 export default function DetailPage() {
   const { countryName } = useParams();
   const [country, setCountry] = useState<Country | null>(null);
   const [error, setError] = useState(false);
+  const [borderingCountries, setBorderingCountries] = useState<
+    borderCountryType[] | null
+  >(null);
 
   useEffect(() => {
     (async () => {
@@ -21,7 +31,6 @@ export default function DetailPage() {
         if (!res.ok) throw new Error("Could not fetch country");
 
         const json: Country[] = await res.json();
-        console.log(json);
         setCountry(json[0]);
       } catch (error) {
         console.error(error);
@@ -33,7 +42,42 @@ export default function DetailPage() {
       setError(false);
       setCountry(null);
     };
-  }, []);
+  }, [countryName]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        if (!country) return;
+
+        const requests: Promise<Response>[] = [];
+
+        // init requests array
+        for (const code of country.borders) {
+          const req = fetch(
+            `https://restcountries.com/v3.1/alpha/${code}?fields=name`,
+          );
+          requests.push(req);
+        }
+
+        // resolve and parse requests
+        const responses = await Promise.all(requests);
+        const json: borderCountryType[] = await Promise.all(
+          responses.map((res) => res.json()),
+        );
+
+        setBorderingCountries(json);
+      } catch (error) {
+        console.error(error);
+        setError(true);
+      }
+    })();
+
+    // clean up
+    return () => {
+      setBorderingCountries(null);
+      setError(false);
+    };
+  }, [country]);
 
   if (error) return <p>Error fetching country</p>;
   if (!country) return <p>Loading...</p>;
@@ -101,7 +145,7 @@ export default function DetailPage() {
               <li>
                 <span>Languages:</span>
                 {Object.keys(country.languages).map((key, index) => (
-                  <span>
+                  <span key={index}>
                     {country.languages[key]}
                     {index != Object.keys(country.languages).length - 1 && ", "}
                   </span>
@@ -109,7 +153,23 @@ export default function DetailPage() {
               </li>
             </ul>
           </div>
-          <div> todo: bordering countries</div>
+          {borderingCountries && borderingCountries?.length > 0 && (
+            <div className={styles.borderLinksContainer}>
+              <div>Bordering Countries:</div>
+              <div>
+                {borderingCountries.map((borderCountry, index) => (
+                  <Link
+                    to={`/details/${borderCountry.name.common}`}
+                    key={index}
+                  >
+                    <button className={styles.borderLink} key={index}>
+                      {borderCountry.name.common}
+                    </button>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

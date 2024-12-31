@@ -52,7 +52,7 @@ main[data-theme=dark] {
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 786px) {
     .navContainer {
         padding: 0 2rem;
     }

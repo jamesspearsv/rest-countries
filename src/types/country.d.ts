@@ -1,6 +1,6 @@
 export type Country = {
-  borders: Array<string>;
-  capital: Array<string>;
+  borders: string[];
+  capital: string[];
   cca3: string;
   currencies: object;
   flags: {
@@ -17,5 +17,5 @@ export type Country = {
   population: number;
   region: string;
   subregion: string;
-  tld: Array<string>;
+  tld: string[];
 };
