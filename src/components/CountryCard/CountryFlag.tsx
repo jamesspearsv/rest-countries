@@ -1,7 +1,7 @@
 import styles from "./CountryCard.module.css";
 
 type CountryFlagProps = {
-  imageSrc?: string;
+  imageSrc: string;
 };
 
 export default function CountryFlag({ imageSrc }: CountryFlagProps) {

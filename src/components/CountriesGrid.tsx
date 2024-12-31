@@ -15,7 +15,6 @@ export default function CountriesGrid({
   const [countries, setCountries] = useState<Country[] | null>(null);
   const [error, setError] = useState(false);
 
-  // todo add ability to search and filter api data
   useEffect(() => {
     // fetch data from API
     (async () => {
